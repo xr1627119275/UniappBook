@@ -6,7 +6,7 @@
 		
 			<u-cell-group v-for="(item,index) in data" :key="index" style="width: 100vw;" :title="item.Type" >
 				<u-cell-item v-for="book in item.List" :key="book.Url" :title="book.Title + '  ' + book.Author" :label="book.Desc" :arrow="false"  @click="toDetail(book)">
-					<u-image slot="icon" :src="book.ImgUrl" style="width: 60px;height: 75px;margin-right: 10px;"></u-image> 
+					<image slot="icon" :src="book.ImgUrl" style="width: 60px;height: 75px;margin-right: 10px;"></image> 
 				</u-cell-item>
 			</u-cell-group>
 		

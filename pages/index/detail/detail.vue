@@ -1,10 +1,10 @@
 <template>
 	<view>
 		<u-cell-item :arrow="false" >
-			<u-image slot="icon" :src="book.ImgUrl" style="width: 120px;height: 150px;margin-right: 10px;"></u-image> 
+			<image slot="icon" :src="BaseInfo.ImgUrl" style="width: 120px;height: 150px;margin-right: 10px;"></image> 
 			<view slot="label">
 				<view v-for="(item,index) in BaseInfo" :key="index">
-					{{item}}
+					{{item}} 
 				</view>
 			</view>
 		</u-cell-item>
