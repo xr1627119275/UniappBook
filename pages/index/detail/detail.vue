@@ -25,7 +25,7 @@
 			return {
 				currUrl: "",
 				data: {},
-				Section: {},
+				Section: [],
 				BaseInfo: {},
 				ImgUrl: ""
 			}
@@ -52,7 +52,7 @@
 				success: res => {
 					console.log(res.data.BaseInfo);
 					this.BaseInfo = res.data.BaseInfo
-					this.Section = Object.freeze(res.data.Section)
+					this.Section = (res.data.Section)
 					
 					this.$nextTick(function(){
 						uni.hideLoading()
