@@ -27,7 +27,7 @@
 			toDetail(book) {
 				
 				uni.navigateTo({
-					url: "../detail/detail?url=" + book.Url,
+					url: "../detail/detail?url=" + book.Url + "&img="+book.ImgUrl,
 					success: () => {
 						uni.setNavigationBarTitle({
 							title: book.Title

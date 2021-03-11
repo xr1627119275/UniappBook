@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<u-cell-item :arrow="false" >
-			<image slot="icon" :src="BaseInfo.ImgUrl" style="width: 120px;height: 150px;margin-right: 10px;"></image> 
+			<image slot="icon" :src="ImgUrl" style="width: 120px;height: 150px;margin-right: 10px;"></image> 
 			<view slot="label">
 				<view v-for="(item,index) in BaseInfo" :key="index">
 					{{item}} 
@@ -27,7 +27,7 @@
 				data: {},
 				Section: {},
 				BaseInfo: {},
-				
+				ImgUrl: ""
 			}
 		},
 		methods: {
@@ -45,11 +45,12 @@
 				title: "加载中"
 			})
 			this.currUrl = options.url
+			this.ImgUrl = options.img
 			uni.request({
 				url: 'https://xrdev.top/wx_api/book_detail?page='+options.url,
 				method: 'GET',
 				success: res => {
-					console.log(res.data);
+					console.log(res.data.BaseInfo);
 					this.BaseInfo = res.data.BaseInfo
 					this.Section = Object.freeze(res.data.Section)
 					
