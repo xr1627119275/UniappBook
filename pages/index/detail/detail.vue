@@ -8,7 +8,8 @@
 				</view>
 			</view>
 		</u-cell-item>
-		
+		<u-cell-item v-if="Desc" :arrow="false" :title="Desc">
+			</u-cell-item>
 		<u-cell-item :arrow="false" title="章节">
 			<view slot="label">
 				<u-button slot="right-icon" size="mini" @click="reverse">倒 正序</u-button>
@@ -27,6 +28,7 @@
 				data: {},
 				Section: [],
 				BaseInfo: {},
+				Desc: undefined,
 				ImgUrl: ""
 			}
 		},
@@ -42,11 +44,12 @@
 			this.currUrl = options.url
 			this.ImgUrl = options.img
 			uni.request({
-				url: `https://xrdev.top/wx_api/book_detail?page=${options.url}&type=${this.$store.state.bookManage.nowType}`,
+				url: `https://xrdev.top/wx_api/book_detail?page=${options.url}&type=${this.$store.getters.nowBookType}`,
 				method: 'GET',
 				success: res => {
 					console.log(res.data.BaseInfo);
 					this.BaseInfo = res.data.BaseInfo
+					this.Desc = res.data.Desc
 					this.Section = (res.data.Section)
 					
 					this.$nextTick(function(){

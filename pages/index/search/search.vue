@@ -29,7 +29,7 @@
 					title: "加载中"
 				})
 				uni.request({
-					url: `https://xrdev.top/wx_api/book_search?type=${this.$store.state.bookManage.nowType}&name=${encodeURI(value)}`,
+					url: `https://xrdev.top/wx_api/book_search?type=${this.$store.getters.nowBookType}&name=${encodeURI(value)}`,
 					method: 'GET',
 					success: res => {
 						console.log(res.data);

@@ -7,7 +7,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
 		bookManage: {
-			nowType: { value: "xbiquge_la" , label: "www.xbiquge.la" },
+			nowType: { value:  "ltoooo_com" , label: "www.ltoooo.com" },
 			select: [
 				{ value:  "ltoooo_com" , label: "www.ltoooo.com" },
 				{ value:  "xbiquge_la" , label: "www.xbiquge.la" },
