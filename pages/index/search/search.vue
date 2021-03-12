@@ -4,7 +4,7 @@
 			<u-search @search="Search" :clearabled="true"></u-search>
 		</view>
 		<u-cell-group style="width: 100vw;" title="搜索结果" >
-			<u-cell-item v-for="(book,index) in result"  :key="index" :title="book.Title + '  ' + book.Author" :label="book.Desc" :arrow="false" @click="toDetail(book)">
+			<u-cell-item v-for="(book,index) in result"  :key="index" :title="book.Title + '  ' + book.Author" :label="book.Desc" :arrow="false" @click="$tools.toDetail(book)">
 				<image slot="icon" :src="book.ImgUrl" style="width: 60px;height: 75px;margin-right: 10px;"></image> 
 			</u-cell-item>
 			
@@ -24,23 +24,12 @@
 			}
 		},
 		methods: {
-			toDetail(book) {
-				
-				uni.navigateTo({
-					url: "../detail/detail?url=" + book.Url + "&img="+book.ImgUrl,
-					success: () => {
-						uni.setNavigationBarTitle({
-							title: book.Title
-						})
-					}
-				})
-			},
 			Search(value) {
 				uni.showLoading({
 					title: "加载中"
 				})
 				uni.request({
-					url: 'https://xrdev.top/wx_api/book_search?page=http://www.ltoooo.com&name='+encodeURI(value),
+					url: `https://xrdev.top/wx_api/book_search?type=${this.$store.state.bookManage.nowType}&name=${encodeURI(value)}`,
 					method: 'GET',
 					success: res => {
 						console.log(res.data);

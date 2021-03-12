@@ -34,7 +34,7 @@
 					title: "加载中"
 				})
 			    uni.request({
-			    	url: 'https://xrdev.top/wx_api/book_content?page='+url,
+			    	url: `https://xrdev.top/wx_api/book_content?page=${url}&type=${this.$store.state.bookManage.nowType}`,
 			    	method: 'GET',
 			    	success: res => {
 			    		console.log(res.data);

@@ -18,7 +18,7 @@
 		{
 			"path": "pages/template/index",
 			"style": {
-				"navigationBarTitleText": "模板"
+				"navigationBarTitleText": "设置"
 			}
 		}
 	    ,{

@@ -1,8 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
+
+
+
 const store = new Vuex.Store({
     state: {
+		bookManage: {
+			nowType: { value: "xbiquge_la" , label: "www.xbiquge.la" },
+			select: [
+				{ value:  "ltoooo_com" , label: "www.ltoooo.com" },
+				{ value:  "xbiquge_la" , label: "www.xbiquge.la" },
+			]
+		},
 		tabBars: [{
 					iconPath: "/static/uview/example/component.png",
 					selectedIconPath: "/static/uview/example/component_select.png",
@@ -19,10 +29,15 @@ const store = new Vuex.Store({
 				{
 					iconPath: "/static/uview/example/template.png",
 					selectedIconPath: "/static/uview/example/template_select.png",
-					text: '模板',
+					text: '设置',
 					pagePath: "/pages/template/index"
 				}, 
 			]
+	},
+	getters: {
+		nowBookType(state) {
+			return state.bookManage.nowType.value
+		}
 	},
     mutations: {},
     actions: {}

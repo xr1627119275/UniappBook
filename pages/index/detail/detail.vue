@@ -14,7 +14,7 @@
 				<u-button slot="right-icon" size="mini" @click="reverse">倒 正序</u-button>
 			</view>
 		</u-cell-item>
-		<u-cell-item :arrow="false" v-for="(item) in Section" :key="item.Url" :title="item.Title" @click="toContent(item)">
+		<u-cell-item :arrow="false" v-for="(item) in Section" :key="item.Url" :title="item.Title" @click="$tools.toContent(item)">
 		</u-cell-item>
 	</view>
 </template>
@@ -33,11 +33,6 @@
 		methods: {
 			reverse() {
 				this.Section = this.Section.reverse()
-			},
-			toContent({Url}) {
-				uni.navigateTo({
-					url: "../content/content?url=" + Url
-				})
 			}
 		},
 		onLoad(options) {
@@ -47,7 +42,7 @@
 			this.currUrl = options.url
 			this.ImgUrl = options.img
 			uni.request({
-				url: 'https://xrdev.top/wx_api/book_detail?page='+options.url,
+				url: `https://xrdev.top/wx_api/book_detail?page=${options.url}&type=${this.$store.state.bookManage.nowType}`,
 				method: 'GET',
 				success: res => {
 					console.log(res.data.BaseInfo);
