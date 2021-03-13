@@ -28,6 +28,7 @@
 			...mapState({ tabbar: state => state.tabBars })  
 		},
 		onLoad() {
+			this.$store.dispatch("getSearchHistory")
 			this.getHomeData()
 			
 			uni.$on("refreshHome", this.getHomeData)
@@ -55,6 +56,9 @@
 				});
 			},
 				toSearch() {
+					
+					
+					
 					console.log("toSearch");
 					uni.navigateTo({
 						url: "search/search"

@@ -1,8 +1,17 @@
 <script>
+	
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
-			
+			console.log('App Launch', this)
+			uni.getProvider({
+				service: "oauth",
+				success: ({ service, provider } ) =>  {
+					this.$store.commit("setPlatform", provider[0] )
+					if (provider[0] === "weixin") {
+						this.$store.dispatch("wx/LoginWeixin")
+					}
+				}
+			})
 		},
 		onShow: function() {
 			console.log('App Show')
