@@ -28,7 +28,7 @@
 			...mapState({ tabbar: state => state.tabBars })  
 		},
 		onLoad() {
-			this.$store.dispatch("getSearchHistory")
+			
 			this.getHomeData()
 			
 			uni.$on("refreshHome", this.getHomeData)
@@ -40,7 +40,7 @@
 					title: "加载中"
 				})
 				uni.request({
-					url: `https://xrdev.top/wx_api/book_home?type=${this.$store.getters.nowBookType}`,
+					url: `https://xrdev.top/wx_api/book/book_home?type=${this.$store.getters.nowBookType}`,
 					method: 'GET',
 					success: res => {
 						console.log(res.data);
@@ -56,9 +56,6 @@
 				});
 			},
 				toSearch() {
-					
-					
-					
 					console.log("toSearch");
 					uni.navigateTo({
 						url: "search/search"

@@ -8,7 +8,9 @@
 				success: ({ service, provider } ) =>  {
 					this.$store.commit("setPlatform", provider[0] )
 					if (provider[0] === "weixin") {
-						this.$store.dispatch("wx/LoginWeixin")
+						this.$store.dispatch("wx/LoginWeixin").then(res => {
+							this.$store.dispatch("getSearchHistory")
+						})
 					}
 				}
 			})

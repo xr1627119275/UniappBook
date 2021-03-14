@@ -29,7 +29,8 @@ const store = new Vuex.Store({
 				},
 			]
 		},
-		tabBars: [{
+		tabBars: [
+			{
 				iconPath: "/static/uview/example/component.png",
 				selectedIconPath: "/static/uview/example/component_select.png",
 				text: '书城',

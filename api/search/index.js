@@ -24,9 +24,11 @@ const api = {
 	},
 	async get() {
 		
-			const { result } = await db.collection(dbCollectionName).get({
-				user_id: store.getters['wx/OpenId']
-			})
+			const { result } = await db.collection(dbCollectionName).where({
+				'user_id': store.getters['wx/OpenId']
+			}).get()
+			
+			console.log("get() ", result);
 			return result.data
 		
 		

@@ -44,7 +44,7 @@
 			this.currUrl = options.url
 			this.ImgUrl = options.img
 			uni.request({
-				url: `https://xrdev.top/wx_api/book_detail?page=${options.url}&type=${this.$store.getters.nowBookType}`,
+				url: `https://xrdev.top/wx_api/book/book_detail?page=${options.url}&type=${this.$store.getters.nowBookType}`,
 				method: 'GET',
 				success: res => {
 					console.log(res.data.BaseInfo);

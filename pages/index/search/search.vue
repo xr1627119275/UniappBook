@@ -1,11 +1,10 @@
 <template>
 	<view>
 		<view style="width: 100vw;padding: 5px;">
-			<u-search @search="Search" v-model="searchData" :clearabled="true"></u-search>
+			<u-search @search="Search" v-model="searchData" :clearabled="true" @custom="Search"></u-search>
 		</view>
 		<u-cell-group v-if="searchHistory.length > 0" style="width: 100vw;" title="历史搜索">
 			<u-cell-item v-for="(search,index) in searchHistory"  :key="index" :title="search" :arrow="false" @click="Search(search, true)" >
-				
 				<u-button name="trash-fill" slot="right-icon" type="error" plain @click="DeleteHistory(search)">删除</u-button>
 			</u-cell-item>
 		</u-cell-group>
@@ -46,7 +45,7 @@
 					title: "加载中"
 				})
 				uni.request({
-					url: `https://xrdev.top/wx_api/book_search?type=${this.$store.getters.nowBookType}&name=${encodeURI(value)}`,
+					url: `https://xrdev.top/wx_api/book/book_search?type=${this.$store.getters.nowBookType}&name=${encodeURI(value)}`,
 					method: 'GET',
 					success: res => {
 						console.log(res.data);
